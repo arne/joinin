@@ -1,7 +1,8 @@
 const Telegraf = require("telegraf");
 const Koa = require("koa");
 const koaBody = require("koa-body");
-const apiToken = "594092629:AAH6p1t4f3ZDdlpLjERHDUq2YgKDw9UC_Ys";
+const logger = require("koa-logger");
+const apiToken = "594092629:AAFDaDXs0SWRkW2zBL3f5JvQVnybS4dJxA0";
 
 const bot = new Telegraf(apiToken);
 

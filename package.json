@@ -1,7 +1,8 @@
 {
   "name": "joinin",
   "version": "1.0.0",
-  "description": "Using telegram as a communications tool for arranging regular events",
+  "description":
+    "Using telegram as a communications tool for arranging regular events",
   "main": "index.js",
   "dependencies": {
     "koa": "^2.5.0",
@@ -19,7 +20,7 @@
     "flow": "flow"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "author": "Arne Fismen & Marcus Ramberg",
   "license": "MIT"
