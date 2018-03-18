@@ -1,17 +1,18 @@
-const Telegraf = require("telegraf");
 const Koa = require("koa");
+const Telegraf = require("telegraf");
 const koaBody = require("koa-body");
+const logger = require("koa-logger");
+const mount = require("koa-mount");
+const path = require("path");
+const pug = require("pug");
+const router = require('koa-router')();
 const sass = require("koa-sass");
 const serve = require("koa-static");
 const serveSass = require("koa.sass");
-const mount = require("koa-mount");
-const pug = require("pug");
-const path = require("path");
 const views = require("koa-views");
-const logger = require("koa-logger");
-const apiToken = "594092629:AAFDaDXs0SWRkW2zBL3f5JvQVnybS4dJxA0";
 
-const bot = new Telegraf(apiToken);
+const bot = new Telegraf(config.apiToken);
+const config = require("config");
 
 bot.command("image", ctx =>
   ctx.replyWithPhoto({ url: "https://picsum.photos/200/300/?random" })
@@ -59,6 +60,7 @@ app.use(
       ? bot.handleUpdate(ctx.request.body, ctx.response)
       : next()
 );
+
 app.listen(3000);
 
 module.exports = app;
