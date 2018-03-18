@@ -11,8 +11,8 @@ const serve = require("koa-static");
 const serveSass = require("koa.sass");
 const views = require("koa-views");
 
-const bot = new Telegraf(config.apiToken);
 const config = require("config");
+const bot = new Telegraf(config.apiToken);
 
 bot.command("image", ctx =>
   ctx.replyWithPhoto({ url: "https://picsum.photos/200/300/?random" })
