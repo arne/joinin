@@ -1,8 +1,7 @@
 {
   "name": "joinin",
   "version": "1.0.0",
-  "description":
-    "Using telegram as a communications tool for arranging regular events",
+  "description": "Using telegram as a communications tool for arranging regular events",
   "main": "index.js",
   "dependencies": {
     "eslint": "^4.19.0",

@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  .container
+    h2 Create event
+    p.description Dette er en gruppe for deg som vil spille fotball i Nydalen på søndager.
+    form
+      label(for="name") Title
+        input(type="text", name="title", id="title")
+      label(for="time") Time
+        input(type="datetime-local", name="time", id="time")
+      label(for="description") Description
+        textarea(name="description", id="description")
+      button(type="submit") Ask for a spot in this group
