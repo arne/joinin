@@ -1,12 +1,17 @@
 {
   "name": "joinin",
   "version": "1.0.0",
-  "description": "Using telegram as a communications tool for arranging regular events",
+  "description":
+    "Using telegram as a communications tool for arranging regular events",
   "main": "index.js",
   "dependencies": {
     "koa": "^2.5.0",
     "koa-body": "^2.5.0",
     "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "koa-views": "^6.1.4",
+    "path": "^0.12.7",
+    "pug": "^2.0.1",
     "telegraf": "^3.19.0"
   },
   "devDependencies": {
@@ -14,11 +19,13 @@
     "eslint-config-google": "^0.9.1",
     "flow-bin": "^0.68.0",
     "node-pg-migrate": "^2.26.0",
+    "nodemon": "^1.17.2",
     "pg": "^7.4.1"
   },
   "scripts": {
     "start": "node app.js",
-    "migrate": "./node_modules/.bin/node-pg-migrate"
+    "migrate": "./node_modules/.bin/node-pg-migrate",
+    "devstart": "./node_modules/.bin/nodemon app.js"
   },
   "author": "Arne Fismen & Marcus Ramberg",
   "license": "MIT"
