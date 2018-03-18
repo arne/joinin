@@ -18,6 +18,9 @@
   "scripts": {
     "flow": "flow"
   },
+  "scripts": {
+    "start": "node index.js"
+  },
   "author": "Arne Fismen & Marcus Ramberg",
   "license": "MIT"
 }
