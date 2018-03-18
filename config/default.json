@@ -1,0 +1,3 @@
+{
+  "db": "postgresql://joinin@localhost:5432/joinin"
+}
