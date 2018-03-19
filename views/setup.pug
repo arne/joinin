@@ -2,4 +2,13 @@ extends layout
 
 block content
   .container
-    h2 Setting up your own joinin-bot
+    h2 Set up your own joinin-bot
+    form
+      div
+        label(for="name") Username (of bot)
+        input(type="text", name="title", id="title")
+      div
+        label(for="name") API-key
+        input(type="text", name="api", id="api")
+      div
+        button(type="submit") Create group

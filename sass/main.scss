@@ -1,3 +1,5 @@
+/* https://coolors.co/f2efea-514b23-656839-040f0f-248232 */
+
 body,
 input,
 button,
@@ -24,14 +26,31 @@ header {
     color: #248232;
   }
 }
+a {
+  color: #248232;
+  text-decoration: none;
+  border-bottom: thin solid darken(#f2efea, 20%);
+  &:hover {
+    border-color: darken(#f2efea, 40%);
+  }
+}
+nav {
+  a {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+}
+
 form {
   label {
     display: block;
     margin-top: 1rem;
+    border: 0;
   }
   input {
     background-color: white;
     padding: 0.25rem;
+    border: 0;
   }
   textarea {
     background-color: white;
@@ -39,10 +58,33 @@ form {
     height: 5rem;
     border: 0;
   }
-  button {
-    border-radius: 1rem;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    border: thin solid darken(#f2efea, 20%);
+}
+
+button {
+  border-radius: 1rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: thin solid darken(#f2efea, 20%);
+  cursor: pointer;
+  &:hover {
+    border: thin solid darken(#f2efea, 50%);
+  }
+}
+ul.people {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    border: thin solid darken(#f2efea, 10%);
+    background-color: white;
+    border-bottom: 0;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    &:last-child {
+      border: thin solid darken(#f2efea, 10%);
+    }
+    span {
+    }
   }
 }
