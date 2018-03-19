@@ -1,8 +1,48 @@
-body {
-  font-family: sans-serif;
+body,
+input,
+button,
+textarea {
+  font-family: 'Patua One', sans-serif;
+  background-color: #f2efea;
+  font-size: 16px;
+  color: #040f0f;
 }
 
 .container {
   margin: 0 auto;
   max-width: 650px;
+}
+header {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  h1 {
+    color: #514b23;
+  }
+  span {
+    color: #248232;
+  }
+}
+form {
+  label {
+    display: block;
+    margin-top: 1rem;
+  }
+  input {
+    background-color: white;
+    padding: 0.25rem;
+  }
+  textarea {
+    background-color: white;
+    width: 30rem;
+    height: 5rem;
+    border: 0;
+  }
+  button {
+    border-radius: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: thin solid darken(#f2efea, 20%);
+  }
 }

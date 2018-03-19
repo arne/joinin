@@ -5,10 +5,14 @@ block content
     h2 Create event
     p.description Dette er en gruppe for deg som vil spille fotball i Nydalen på søndager.
     form
-      label(for="name") Title
+      div
+        label(for="name") Title
         input(type="text", name="title", id="title")
-      label(for="time") Time
+      div
+        label(for="time") Time
         input(type="datetime-local", name="time", id="time")
-      label(for="description") Description
+      div
+        label(for="description") Description
         textarea(name="description", id="description")
-      button(type="submit") Ask for a spot in this group
+      div
+        button(type="submit") Create event
