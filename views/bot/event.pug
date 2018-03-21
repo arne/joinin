@@ -2,27 +2,27 @@ extends ../layout
 
 block content
   .container
-    h2 EventName
-    p.time 
-    
+    h2= event.title
+    p.time
+
     h3 Responses (2 joined)
     ul.people
-      li.in 
-        span Arne Fismen 
+      li.in
+        span Arne Fismen
         span joined
-      li.in 
-        span Marcus Ramberg 
+      li.in
+        span Marcus Ramberg
         span joined
-      li.awaiting 
-        span Audun Ellertsen 
+      li.awaiting
+        span Audun Ellertsen
         span awaiting
-      li.awaiting 
-        span Nicolas Mendoza 
+      li.awaiting
+        span Nicolas Mendoza
         span awaiting
-      li.cant 
-        span Jan Henning Thorsen 
+      li.cant
+        span Jan Henning Thorsen
         span can't join
-    
+
     h3 Invite members (#[a(href="") invite all])
     ul.people
       li.invitable

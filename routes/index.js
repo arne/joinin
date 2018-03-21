@@ -21,6 +21,8 @@ router.post('/b/:botid/new', async (ctx, next) => {
 });
 
 router.get('/b/:botid/:eventid', async (ctx, next) => {
+  const event=await bots.get_event(ctx.params.botid, ctx.params.eventid);
+  ctx.assert(bot.rows[0], 404, 'Bot not found');
   await ctx.render('bot/event.pug');
 });
 
