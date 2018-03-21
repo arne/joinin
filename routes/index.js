@@ -7,11 +7,16 @@ router.get('/', async (ctx, next) => {
 });
 
 router.get('/b/:botid', async (ctx, next) => {
-  await ctx.render('bot/');
+  const bot=await bots.get(ctx.params.botid)
+  await ctx.render('bot/', { bot: bot.rows[0] });
 });
 
 router.get('/b/:botid/new', async (ctx, next) => {
   await ctx.render('bot/new.pug');
+});
+
+router.post('/b/:botid/new', async (ctx, next) => {
+  console.log(ctx.req)
 });
 
 router.get('/b/:botid/:eventid', async (ctx, next) => {

@@ -5,7 +5,8 @@ const logger = require("koa-logger");
 const mount = require("koa-mount");
 const path = require("path");
 const pug = require("pug");
-const router = require("koa-router")();
+const router = require('koa-router')();
+const sass = require("koa-sass");
 const serve = require("koa-static");
 const serveSass = require("koa.sass");
 const views = require("koa-views");
@@ -35,9 +36,9 @@ app.use(
 
 app.use(
   serveSass({
-    mountAt: "/css",
+    mountAt: "/public/css",
     src: "./sass",
-    dest: "./.tmp/css",
+    dest: "./.tmp/stylesheets",
     debug: true
   })
 );
