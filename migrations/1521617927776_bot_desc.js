@@ -1,10 +1,9 @@
 exports.up = (pgm) => {
-  pgm.addColumns( "bots", {
-    description: "text"
+  pgm.addColumns('bots', {
+    description: 'text',
   });
 };
 
 exports.down = (pgm) => {
-  pgm.dropColumns( "bots", [ "description" ] );
-
+  pgm.dropColumns('bots', ['description']);
 };

@@ -1,3 +1,7 @@
 module.exports = {
-    "extends": "google"
+  extends: 'google',
+
+  rules: {
+    quotes: [2, 'single', { avoidEscape: true }],
+  },
 };

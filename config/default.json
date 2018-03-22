@@ -1,4 +1,4 @@
 {
   "db": "postgresql://joinin@localhost:5432/joinin",
-  "apiToken":  "594092629:AAFDaDXs0SWRkW2zBL3f5JvQVnybS4dJxA0"
+  "apiToken": "594092629:AAFDaDXs0SWRkW2zBL3f5JvQVnybS4dJxA0"
 }
