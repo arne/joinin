@@ -35,9 +35,9 @@ app.use(
 
 app.use(
   serveSass({
-    mountAt: '/public/css',
+    mountAt: '/css',
     src: './sass',
-    dest: './.tmp/stylesheets',
+    dest: './.tmp/css',
     debug: true,
   })
 );
