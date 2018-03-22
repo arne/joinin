@@ -5,7 +5,7 @@ async function all() {
 }
 
 async function get(botid) {
-  return db.query('SELECT name, description, api_key FROM bots WHERE id=$1', [
+  return db.query('SELECT id, description, api_key FROM bots WHERE name=$1', [
     botid,
   ]);
 }
