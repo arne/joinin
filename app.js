@@ -1,20 +1,20 @@
 const Koa = require('koa');
 const Telegraf = require('telegraf');
+const Pug = require('koa-pug');
+
 const koaBody = require('koa-body');
 const logger = require('koa-logger');
 const mount = require('koa-mount');
-const pug = require('pug');
 const serve = require('koa-static');
 const serveSass = require('koa.sass');
-const views = require('koa-views');
 
 const config = require('config');
 const bot = new Telegraf(config.apiToken);
 
 bot.command('image', (ctx) =>
-  ctx.replyWithPhoto({url: 'https://picsum.photos/200/300/?random'})
+  ctx.replyWithPhoto({ url: 'https://picsum.photos/200/300/?random' })
 );
-bot.on('text', ({reply}) => reply('Hey there!'));
+bot.on('text', ({ reply }) => reply('Hey there!'));
 
 // Set telegram webhook
 // npm install -g localtunnel && lt --port 3000
@@ -22,14 +22,12 @@ bot.telegram.setWebhook('https://zarjpfmohg.localtunnel.me/secret-path');
 
 const app = new Koa();
 
-app.use(
-  views(__dirname + '/views', {
-    map: {
-      html: 'pug',
-    },
-    extension: 'pug',
-  })
-);
+const pug = new Pug({
+  viewPath: './views',
+  basedir: './views',
+});
+
+pug.use(app);
 
 app.use(
   serveSass({
