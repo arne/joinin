@@ -8,8 +8,9 @@ router.get('/', async (ctx, next) => {
 
 router.get('/b/:botid', async (ctx, next) => {
   const bot = await bots.get(ctx.params.botid);
-  ctx.assert(bot.rows[0], 404, 'Bot not found');
-  await ctx.render('bot/', { bot: bot.rows[0] });
+  console.log(bot);
+  ctx.assert(bot, 404, 'Bot not found');
+  await ctx.render('bot/', { bot: bot });
 });
 
 router.get('/b/:botid/new', async (ctx, next) => {
@@ -22,8 +23,8 @@ router.post('/b/:botid/new', async (ctx, next) => {
 
 router.get('/b/:botid/:eventid', async (ctx, next) => {
   const event = await bots.get_event(ctx.params.botid, ctx.params.eventid);
-  ctx.assert(bot.rows[0], 404, 'Bot not found');
-  await ctx.render('bot/event.pug');
+  ctx.assert(event, 404, 'Bot not found');
+  await ctx.render('bot/event.pug', {event: event});
 });
 
 module.exports = router;

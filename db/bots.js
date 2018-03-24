@@ -1,28 +1,25 @@
 const db = require('.');
 
-async function all() {
-  let result = await db.query('SELECT * FROM bots');
-  return result.row;
+function all() {
+ return db.query('SELECT * FROM bots');
 }
 
-async function get(botid) {
-  let result = await db.query(
-    'SELECT id, description, api_key FROM bots WHERE name=$1',
-    [botid]
+function get(bot_id) {
+  return db.queryOne(
+    'SELECT name, description, api_key FROM bots WHERE id=$1',
+    [bot_id]
   );
-  return result.rows[0];
 }
 
-async function get_event(botid, eventid) {
-  let result = await db.query(
+function get_event(botid, eventid) {
+  return db.queryOne(
     'SELECT title, start, end FROM events WHERE bot_id=$1 AND id=$2',
     [botid, eventid]
   );
-  return result.rows[0];
 }
 
 module.exports = {
   all: () => all(),
-  get: (botid) => get(botid),
+  get: (bot) => get(bot),
   get_event: (botid, eventid) => get(botid, eventid),
 };
