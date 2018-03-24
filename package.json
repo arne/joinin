@@ -1,16 +1,21 @@
 {
   "name": "joinin",
   "version": "1.0.0",
-  "description":
-    "Using telegram as a communications tool for arranging regular events",
+  "description": "Using telegram as a communications tool for arranging regular events",
   "main": "index.js",
   "dependencies": {
     "eslint": "^4.19.0",
     "koa": "^2.5.0",
     "koa-body": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
     "koa-logger": "^3.2.0",
+    "koa-passport": "^4.0.1",
+    "koa-pug": "^3.0.0-2",
     "koa-router": "^7.4.0",
+    "koa-session": "^5.8.1",
     "koa-static": "^4.0.2",
+    "npm": "^5.8.0",
+    "passport-telegram-official": "^1.0.3",
     "path": "^0.12.7",
     "telegraf": "^3.19.0"
   },

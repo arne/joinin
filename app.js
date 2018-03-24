@@ -3,9 +3,12 @@ const Telegraf = require('telegraf');
 const Pug = require('koa-pug');
 
 const koaBody = require('koa-body');
+const bodyParser = require('koa-bodyparser');
 const logger = require('koa-logger');
 const mount = require('koa-mount');
 const serve = require('koa-static');
+const session = require('koa-session');
+const passport = require('koa-passport');
 const serveSass = require('koa.sass');
 
 const config = require('config');
@@ -21,6 +24,18 @@ bot.on('text', ({ reply }) => reply('Hey there!'));
 bot.telegram.setWebhook('https://zarjpfmohg.localtunnel.me/secret-path');
 
 const app = new Koa();
+
+// sessions
+app.keys = ['super-botnet-key'];
+app.use(session(app));
+
+// body parser
+app.use(bodyParser());
+
+// authentication
+// require('./source/auth.js');
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 const pug = new Pug({
   viewPath: './views',
