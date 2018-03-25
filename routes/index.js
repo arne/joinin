@@ -14,7 +14,7 @@ router.get('/b/:botid', async (ctx, next) => {
 });
 
 router.get('/b/:botid/new', async (ctx, next) => {
-  await ctx.render('bot/new.pug');
+  await ctx.render('bot/new');
 });
 
 router.post('/b/:botid/new', async (ctx, next) => {
@@ -24,7 +24,7 @@ router.post('/b/:botid/new', async (ctx, next) => {
 router.get('/b/:botid/:eventid', async (ctx, next) => {
   const event = await bots.get_event(ctx.params.botid, ctx.params.eventid);
   ctx.assert(event, 404, 'Bot not found');
-  await ctx.render('bot/event.pug', {event: event});
+  await ctx.render('bot/event', { event: event });
 });
 
 module.exports = router;
