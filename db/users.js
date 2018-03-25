@@ -1,8 +1,8 @@
 const db = require('.');
 
 const users = {
-  all: async function() {
-    return db.query('SELECT * FROM users');
+  all: function() {
+    return db.queryMany('SELECT * FROM users');
   },
   get: function(user_id) {
     return db.queryOne(

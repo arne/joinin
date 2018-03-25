@@ -23,7 +23,7 @@ function queryMany(text, params) {
 }
 
 module.exports = {
-  query: (text, params) => pool.query(text, params),
-  queryOne: (text, params) => queryOne(text, params),
-  queryMany: (text, params) => queryMany(text, params),
+  query: pool.query,
+  queryOne: queryOne,
+  queryMany: queryMany,
 };
