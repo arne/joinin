@@ -1,6 +1,7 @@
 const Router = require('koa-router');
 const router = new Router();
-const bots = require('../db/bots.js');
+const Bots = require('../db/bots.js');
+const bots = new Bots();
 
 router.get('/', async (ctx, next) => {
   await ctx.render('index');
