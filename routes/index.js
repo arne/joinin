@@ -14,11 +14,15 @@ router.get('/b/:botid', async (ctx, next) => {
 });
 
 router.get('/b/:botid/new', async (ctx, next) => {
-  await ctx.render('bot/new');
+  const bot = await bots.get(ctx.params.botid);
+  ctx.assert(bot, 404, 'Bot not found');
+  await ctx.render('bot/new', { bot: bot });
 });
 
 router.post('/b/:botid/new', async (ctx, next) => {
-  console.log(ctx.req);
+  const bot = await bots.get(ctx.params.botid);
+  ctx.assert(bot, 404, 'Bot not found');
+  console.log(ctx.req.params);
 });
 
 router.get('/b/:botid/:eventid', async (ctx, next) => {

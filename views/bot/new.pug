@@ -2,8 +2,9 @@ extends ../layout
 
 block content
   .container
-    h2 Create event
-    form
+    h2 Create an event for
+      small= bot.name
+    form(method="POST")
       div
         label(for="name") Title
         input(type="text", name="title", id="title")
