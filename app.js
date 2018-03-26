@@ -1,5 +1,4 @@
 const Koa = require('koa');
-const Telegraf = require('telegraf');
 const Pug = require('koa-pug');
 
 const koaBody = require('koa-body');
@@ -8,21 +7,12 @@ const logger = require('koa-logger');
 const mount = require('koa-mount');
 const serve = require('koa-static');
 const session = require('koa-session');
-const passport = require('koa-passport');
 const serveSass = require('koa.sass');
+const Bots = require('./db/bots.js');
 
 const config = require('config');
-const bot = new Telegraf(config.apiToken);
-
-bot.command('image', (ctx) =>
-  ctx.replyWithPhoto({ url: 'https://picsum.photos/200/300/?random' })
-);
-bot.on('text', ({ reply }) => reply('Hey there!'));
-
-// Set telegram webhook
-// npm install -g localtunnel && lt --port 3000
-bot.telegram.setWebhook('https://zarjpfmohg.localtunnel.me/secret-path');
-
+const bots=new Bots;
+bots.run(config);
 const app = new Koa();
 
 // sessions
@@ -64,12 +54,7 @@ app.use(setupRouter.routes());
 app.use(setupRouter.allowedMethods());
 
 app.use(koaBody());
-app.use(
-  (ctx, next) =>
-    ctx.method === 'POST' || ctx.url === '/secret-path'
-      ? bot.handleUpdate(ctx.request.body, ctx.response)
-      : next()
-);
+app.use(bots.runHooks());
 
 app.listen(3000);
 

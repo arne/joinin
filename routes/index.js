@@ -9,7 +9,6 @@ router.get('/', async (ctx, next) => {
 
 router.get('/b/:botid', async (ctx, next) => {
   const bot = await bots.get(ctx.params.botid);
-  console.log(bot);
   ctx.assert(bot, 404, 'Bot not found');
   await ctx.render('bot/', { bot: bot });
 });

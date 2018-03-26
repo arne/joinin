@@ -1,9 +1,15 @@
 const db = require('.');
+const Telegraf = require('telegraf');
+
 
  /*
   * @class Bots
   */
 class Bots {
+
+  constructor() {
+    this.bots=new Array;
+  };
  /*
   * @return Promise
   */
@@ -41,6 +47,28 @@ class Bots {
  /** V
   * @param  {} values
   */
+  async run(config) {
+    const bots = await this.all();
+    for(const b of bots) {
+      let bot = new Telegraf(b.api_key);
+      bot.command('image', (ctx) =>
+         ctx.replyWithPhoto({url: 'https://picsum.photos/200/300/?random'})
+      );
+      // Set telegram webhook
+      // npm install -g localtunnel && lt --port 3000
+      bot.telegram.setWebhook('https://zarjpfmohg.localtunnel.me/secret-path');
+      bot.on('text', ({reply}) => reply('Hey there!'));
+      this.bots[b.name]=bot;
+    }
+  };
+  runHooks() {
+    return (ctx, next) =>  {
+      ctx.method === 'POST' && ctx.url === '/secret-path'
+        ? bot.handleUpdate(ctx.request.body, ctx.response)
+        : next()
+    };
+  };
+
 };
 
 module.exports = Bots;
