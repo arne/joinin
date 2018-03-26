@@ -14,6 +14,7 @@ const config = require('config');
 const bots=new Bots;
 bots.run(config);
 const app = new Koa();
+app.use(logger());
 
 // sessions
 app.keys = ['super-botnet-key'];
