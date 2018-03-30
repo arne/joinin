@@ -10,13 +10,13 @@ router.get('/', async (ctx, next) => {
 router.get('/b/:botid', async (ctx, next) => {
   const bot = await bots.get(ctx.params.botid);
   ctx.assert(bot, 404, 'Bot not found');
-  await ctx.render('bot/', { bot: bot });
+  await ctx.render('bot/', {bot: bot});
 });
 
 router.get('/b/:botid/new', async (ctx, next) => {
   const bot = await bots.get(ctx.params.botid);
   ctx.assert(bot, 404, 'Bot not found');
-  await ctx.render('bot/new', { bot: bot });
+  await ctx.render('bot/new', {bot: bot});
 });
 
 router.post('/b/:botid/new', async (ctx, next) => {
@@ -28,7 +28,13 @@ router.post('/b/:botid/new', async (ctx, next) => {
 router.get('/b/:botid/:eventid', async (ctx, next) => {
   const event = await bots.get_event(ctx.params.botid, ctx.params.eventid);
   ctx.assert(event, 404, 'Bot not found');
-  await ctx.render('bot/event', { event: event });
+  await ctx.render('bot/event', {event: event});
+});
+
+router.post('/webhook/:botid', async (ctx, next) => {
+  const bot = ctx.bots[ctx.params.botid];
+  ctx.assert(bot, 404, 'Bot not found');
+  bot.handleUpdate(ctx.request.body, ctx.response);
 });
 
 module.exports = router;

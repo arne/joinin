@@ -11,10 +11,11 @@ const serveSass = require('koa.sass');
 const Bots = require('./db/bots.js');
 
 const config = require('config');
-const bots=new Bots;
-bots.run(config);
 const app = new Koa();
 app.use(logger());
+
+const bots=new Bots;
+bots.run(config, app);
 
 // sessions
 app.keys = ['super-botnet-key'];
@@ -55,8 +56,7 @@ app.use(setupRouter.routes());
 app.use(setupRouter.allowedMethods());
 
 app.use(koaBody());
-app.use(bots.runHooks());
 
-app.listen(3000);
+app.listen(config.port);
 
 module.exports = app;
