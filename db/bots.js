@@ -77,14 +77,20 @@ class Bots {
           fulfill(tunnel);
         });
       });
-      const tunnel=await(p);
-      host=new URL(tunnel.host).host;
+      try {
+        const tunnel=await(p);
+        host=new URL(tunnel.url).host;
+      } catch (err) {
+        console.log(err);
+        return;
+      };
     }
 
     for (const b of bots) {
       let bot = new Telegraf(b.api_key);
-      bot.command('image', (ctx) =>
+      bot.command('image', (ctx) => {
          ctx.replyWithPhoto({url: 'https://picsum.photos/200/300/?random'})
+      }
       );
       // Set telegram webhook
       // npm install -g localtunnel && lt --port 3000
@@ -92,7 +98,7 @@ class Bots {
       bot.on('text', ({reply}) => reply('Hey there!'));
       this.bots[b.name]=bot;
     }
-    app.ctx.bots=this.bots;
+    app.context.bots=this.bots;
     return;
   };
 }
