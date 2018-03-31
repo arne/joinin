@@ -1,4 +1,6 @@
 {
+  "host": "localhost",
+  "port": "3000",
   "db": "postgresql://joinin@localhost:5432/joinin",
   "apiToken": "594092629:AAFDaDXs0SWRkW2zBL3f5JvQVnybS4dJxA0"
 }

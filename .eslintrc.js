@@ -5,6 +5,6 @@ module.exports = {
     quotes: [2, 'single', { avoidEscape: true }],
   },
   parserOptions: {
-    ecmaVersion: 6
+    ecmaVersion: 2017
   }
 };
